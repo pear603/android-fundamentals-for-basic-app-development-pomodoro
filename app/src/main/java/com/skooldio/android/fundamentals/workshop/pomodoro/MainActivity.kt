@@ -3,6 +3,7 @@ package com.skooldio.android.fundamentals.workshop.pomodoro
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.activity.result.contract.ActivityResultContracts
@@ -104,6 +105,15 @@ class MainActivity : AppCompatActivity() {
             updateLongBreakDuration()
         }
         binding.buttonReady.setOnClickListener {
+            binding.buttonReady.setOnClickListener {
+                val intent = TimerActivity.newIntent(
+                    context = this,
+                    workDuration = workDuration,
+                    shortBreakDuration = shortBreakDuration,
+                    longBreakDuration = longBreakDuration
+                )
+                startActivity(intent)
+            }
 
         }
 
