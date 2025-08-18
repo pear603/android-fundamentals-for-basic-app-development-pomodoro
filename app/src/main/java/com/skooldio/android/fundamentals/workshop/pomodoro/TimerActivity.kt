@@ -3,6 +3,7 @@ package com.skooldio.android.fundamentals.workshop.pomodoro
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -53,6 +54,6 @@ class TimerActivity : AppCompatActivity() {
             0
         )
         longBreakDuration = intent.getIntExtra(EXTRA_LONG_BREAK_DURATION, 0)
-//Log.d("Comsci", "Work Duration = $workDuration")
+        Log.d("Comsci", "Work Duration = $workDuration, $shortBreakDuration, $longBreakDuration")
     }
 }
