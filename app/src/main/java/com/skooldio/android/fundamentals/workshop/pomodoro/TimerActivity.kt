@@ -13,6 +13,16 @@ import kotlin.getValue
 
 
 class TimerActivity : AppCompatActivity() {
+
+
+    private val binding: ActivityTimerBinding by lazy {
+        ActivityTimerBinding.inflate(layoutInflater)
+    }
+
+    private var workDuration: Int = 0
+    private var shortBreakDuration: Int = 0
+    private var longBreakDuration: Int = 0
+
     companion object {
         private const val EXTRA_WORK_DURATION = "work_duration"
         private const val EXTRA_SHORT_BREAK_DURATION = "short_break_duration"
@@ -30,16 +40,6 @@ class TimerActivity : AppCompatActivity() {
             }
         }
     }
-
-    private val binding: ActivityTimerBinding by lazy {
-        ActivityTimerBinding.inflate(layoutInflater)
-    }
-
-    private var workDuration: Int = 0
-    private var shortBreakDuration: Int = 0
-    private var longBreakDuration: Int = 0
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
