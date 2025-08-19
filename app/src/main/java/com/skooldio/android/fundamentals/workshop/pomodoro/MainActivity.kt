@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         // Do nothing
     }
 
+
     companion object {
         private const val WORK_DURATION_DEFAULT = PomodoroConfig.WORK_DURATION_DEFAULT
         private const val WORK_DURATION_MIN = PomodoroConfig.WORK_DURATION_MIN
@@ -105,16 +106,16 @@ class MainActivity : AppCompatActivity() {
             updateLongBreakDuration()
         }
         binding.buttonReady.setOnClickListener {
-            binding.buttonReady.setOnClickListener {
-                val intent = TimerActivity.newIntent(
-                    context = this,
-                    workDuration = workDuration,
-                    shortBreakDuration = shortBreakDuration,
-                    longBreakDuration = longBreakDuration
-                )
-                startActivity(intent)
-            }
-
+            val config = Config(
+                workDuraton = workDuration,
+                shortBreakDuration = shortBreakDuration,
+                longBreakDuration = longBreakDuration
+            )
+            val intent = TimerActivity.newIntent(
+                context = this,
+                config = config
+            )
+            startActivity(intent)
         }
 
     }

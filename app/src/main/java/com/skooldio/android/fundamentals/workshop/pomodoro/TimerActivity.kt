@@ -20,24 +20,17 @@ class TimerActivity : AppCompatActivity() {
         ActivityTimerBinding.inflate(layoutInflater)
     }
 
-    private var workDuration: Int = 0
-    private var shortBreakDuration: Int = 0
-    private var longBreakDuration: Int = 0
+
+private var config: Config? = null
 
     companion object {
-        private const val EXTRA_WORK_DURATION = "work_duration"
-        private const val EXTRA_SHORT_BREAK_DURATION = "short_break_duration"
-        private const val EXTRA_LONG_BREAK_DURATION = "long_break_duration"
+        private const val EXTRA_CONFIG = "config"
         fun newIntent(
             context: Context,
-            workDuration: Int,
-            shortBreakDuration: Int,
-            longBreakDuration: Int
+            config:Config
         ): Intent {
             return Intent(context, TimerActivity::class.java).apply {
-                putExtra(EXTRA_WORK_DURATION, workDuration)
-                putExtra(EXTRA_SHORT_BREAK_DURATION, shortBreakDuration)
-                putExtra(EXTRA_LONG_BREAK_DURATION, longBreakDuration)
+                putExtra(EXTRA_CONFIG, config)
             }
         }
     }
@@ -48,12 +41,7 @@ class TimerActivity : AppCompatActivity() {
     }
 
     private fun restoreBundle() {
-        workDuration = intent.getIntExtra(EXTRA_WORK_DURATION, 0)
-        shortBreakDuration = intent.getIntExtra(
-            EXTRA_SHORT_BREAK_DURATION,
-            0
-        )
-        longBreakDuration = intent.getIntExtra(EXTRA_LONG_BREAK_DURATION, 0)
-        Log.d("Comsci", "Work Duration = $workDuration, $shortBreakDuration, $longBreakDuration")
+        config = intent.getParcelableExtra(EXTRA_CONFIG)
+
     }
 }
